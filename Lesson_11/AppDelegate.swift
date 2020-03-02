@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  LibrariesProject
+//  Lesson_11
 //
-//  Created by Ильдар Залялов on 02.03.2020.
-//  Copyright © 2020 Ildar Zalyalov. All rights reserved.
+//  Created by Никита Лужбин on 02.03.2020.
+//  Copyright © 2020 Никита. All rights reserved.
 //
 
 import UIKit
