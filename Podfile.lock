@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (5.0.2)
+  - Pulley (2.8.0)
+  - SDWebImage (5.5.2):
+    - SDWebImage/Core (= 5.5.2)
+  - SDWebImage/Core (5.5.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0)
+  - Pulley (~> 2.8)
+  - SDWebImage (~> 5.5)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Pulley
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  Pulley: 81301031e9b08c7b240fa47e8b5d76e00bb05530
+  SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
+
+PODFILE CHECKSUM: 2be662c1033bb05b90a003bd9e94f66e1c26e1f7
+
+COCOAPODS: 1.8.4
