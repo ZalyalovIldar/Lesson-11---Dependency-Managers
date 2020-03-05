@@ -35,8 +35,11 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         networkManager.getAllHeroes { [weak self] heroes in
             
-            self?.heroes = heroes
-            self?.heroesTableView.reloadData()
+            DispatchQueue.main.async {
+                
+                self?.heroes = heroes
+                self?.heroesTableView.reloadData()
+            }
         }
     }
     

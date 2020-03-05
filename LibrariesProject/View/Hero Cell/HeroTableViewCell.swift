@@ -29,7 +29,9 @@ class HeroTableViewCell: UITableViewCell {
             
             guard let self = self else { return }
             
-            self.heroImageView.image = image?.resizeTopAlignedToFill(newWidth: self.heroImageView.frame.width)
+            DispatchQueue.main.async {
+                self.heroImageView.image = image?.resizeTopAlignedToFill(newWidth: self.heroImageView.frame.width)
+            }
         }
     }
 }

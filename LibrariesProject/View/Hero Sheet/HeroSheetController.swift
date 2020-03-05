@@ -39,7 +39,9 @@ class HeroSheetController: UIViewController {
             
             guard let self = self else { return }
             
-            self.imageView.image = image?.resizeTopAlignedToFill(newWidth: self.imageView.frame.width)
+            DispatchQueue.main.async {
+                self.imageView.image = image?.resizeTopAlignedToFill(newWidth: self.imageView.frame.width)
+            }
         }
 
         eyeColorLabel.text = hero.eyeColor
