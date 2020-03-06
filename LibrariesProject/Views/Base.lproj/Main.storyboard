@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y1r-Lz-tlf">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Star Wars Characters-->
+        <scene sceneID="JUZ-Ie-xBP">
+            <objects>
+                <tableViewController id="P9J-j6-t2D" customClass="TableViewController" customModule="LibrariesProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hV8-ow-ooc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="characterCell" id="OoN-le-Mea" customClass="CharacterTableViewCell" customModule="LibrariesProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OoN-le-Mea" id="kOG-2b-sDA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPq-Lp-XCr">
+                                            <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="aHt-De-OaU"/>
+                                                <constraint firstAttribute="height" constant="60" id="fN3-Lw-efz"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1v-qz-rpy">
+                                            <rect key="frame" x="100" y="11" width="47" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="homeworld:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeE-i8-VPp">
+                                            <rect key="frame" x="100" y="40" width="90" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zeE-i8-VPp" firstAttribute="leading" secondItem="EPq-Lp-XCr" secondAttribute="trailing" constant="30" id="9nu-F6-OPW"/>
+                                        <constraint firstItem="Z1v-qz-rpy" firstAttribute="leading" secondItem="EPq-Lp-XCr" secondAttribute="trailing" constant="30" id="Hk2-8a-8c1"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zeE-i8-VPp" secondAttribute="trailing" constant="20" symbolic="YES" id="KRS-N6-p98"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z1v-qz-rpy" secondAttribute="trailing" constant="20" symbolic="YES" id="Ks6-66-hPe"/>
+                                        <constraint firstItem="Z1v-qz-rpy" firstAttribute="top" secondItem="kOG-2b-sDA" secondAttribute="topMargin" id="OGt-z7-sBD"/>
+                                        <constraint firstItem="zeE-i8-VPp" firstAttribute="top" secondItem="Z1v-qz-rpy" secondAttribute="bottom" constant="8" id="TPx-BG-VE8"/>
+                                        <constraint firstAttribute="bottom" secondItem="EPq-Lp-XCr" secondAttribute="bottom" constant="10" id="Vty-zU-1eF"/>
+                                        <constraint firstItem="EPq-Lp-XCr" firstAttribute="leading" secondItem="kOG-2b-sDA" secondAttribute="leading" constant="10" id="dCq-y0-heG"/>
+                                        <constraint firstItem="EPq-Lp-XCr" firstAttribute="top" secondItem="kOG-2b-sDA" secondAttribute="top" constant="10" id="mCt-kc-ft8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="characterHomeworldLabel" destination="zeE-i8-VPp" id="jtU-Rq-xRV"/>
+                                    <outlet property="characterImageView" destination="EPq-Lp-XCr" id="1CN-ll-oaE"/>
+                                    <outlet property="characterNameLabel" destination="Z1v-qz-rpy" id="tsC-GM-qta"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="P9J-j6-t2D" id="Uet-6C-53p"/>
+                            <outlet property="delegate" destination="P9J-j6-t2D" id="6aO-3b-ggR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Star Wars Characters" id="i2P-NX-ZUv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8gh-rU-k2N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1261.5999999999999" y="-176.76161919040482"/>
+        </scene>
+        <!--Star Wars characters-->
+        <scene sceneID="smF-Cu-cu2">
+            <objects>
+                <navigationController title="Star Wars characters" automaticallyAdjustsScrollViewInsets="NO" id="Y1r-Lz-tlf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ItA-B3-Tc5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P9J-j6-t2D" kind="relationship" relationship="rootViewController" id="QgJ-Gd-bQp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pCd-Rs-1Na" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="322.39999999999998" y="-176.76161919040482"/>
+        </scene>
+    </scenes>
+</document>
