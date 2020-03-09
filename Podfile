@@ -7,7 +7,6 @@ target 'LibrariesProject' do
 
   pod 'Alamofire', '~> 5.0'
   pod 'SDWebImage', '~> 5.0'
-  pod 'Pulley'
   pod 'FloatingPanel'
 
 end

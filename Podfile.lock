@@ -1,7 +1,6 @@
 PODS:
   - Alamofire (5.0.2)
   - FloatingPanel (1.7.4)
-  - Pulley (2.8.0)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
@@ -9,22 +8,19 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.0)
   - FloatingPanel
-  - Pulley
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - FloatingPanel
-    - Pulley
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
   FloatingPanel: 3c9d0e30fe350e1613157557769d2ec97f76b96b
-  Pulley: 81301031e9b08c7b240fa47e8b5d76e00bb05530
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
 
-PODFILE CHECKSUM: 23ce935d0a47be08cae52e681e148b6516b1a037
+PODFILE CHECKSUM: 99897c680daa60fe863c5dbe94c5dffd0d130478
 
 COCOAPODS: 1.9.0
