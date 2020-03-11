@@ -8,9 +8,13 @@ enum DataResponseResult {
 
 class RemoteDataManager {
     
+    //MARK: - Instance Properties
+    
     static let shared = RemoteDataManager()
     
     private let baseURL = "https://akabab.github.io/starwars-api/api/all.json"
+    
+    //MARK: - Instance Methods
     
     func getData(complition: @escaping (DataResponseResult) -> ()) {
         

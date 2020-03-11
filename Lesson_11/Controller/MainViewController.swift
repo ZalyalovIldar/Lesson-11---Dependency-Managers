@@ -6,11 +6,19 @@ import Presentr
 fileprivate enum Constants {
     
     static let creatureCellIdentifier = "CreatureCell"
+    static let mainStoryboardIdentifier = "Main"
+    static let detailedInfoVCIdentifier = "DetailedInfoVC"
 }
 
+//MARK: - MainViewController
+
 class MainViewController: UIViewController {
+    
+    //MARK: IBOutlets
 
     @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: Properties
     
     var creatures: [Creature] = []
     let presenter: Presentr = {
@@ -25,12 +33,7 @@ class MainViewController: UIViewController {
         return customPresenter
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupTableView()
-        fetchData()
-    }
+    //MARK: - Instance Methods
     
     func fetchData() {
         
@@ -55,6 +58,15 @@ class MainViewController: UIViewController {
     
     func handle(error: Error) {
         AlertService.shared.showErrorAlert(on: self, error: error)
+    }
+    
+    //MARK: - UIViewController
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupTableView()
+        fetchData()
     }
 }
 
@@ -90,8 +102,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let selectedCreature = creatures[indexPath.row]
 
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let detailedInfoVC = storyboard.instantiateViewController(identifier: "DetailedInfoVC") as! DetailedInfoViewController
+        let storyboard = UIStoryboard(name: Constants.mainStoryboardIdentifier, bundle: nil)
+        let detailedInfoVC = storyboard.instantiateViewController(identifier: Constants.detailedInfoVCIdentifier) as! DetailedInfoViewController
         detailedInfoVC.creature = selectedCreature
         
         DispatchQueue.main.async {

@@ -3,6 +3,8 @@ import SDWebImage
 
 class DetailedInfoViewController: UIViewController {
     
+    //MARK: - IBOutlets
+    
     @IBOutlet weak var creatureNameLabel: UILabel!
     @IBOutlet weak var creatureImageView: UIImageView!
     @IBOutlet weak var heightLabel: UILabel!
@@ -10,7 +12,11 @@ class DetailedInfoViewController: UIViewController {
     @IBOutlet weak var homeWorldLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     
+    //MARK: - Properties
+    
     var creature: Creature!
+    
+    //MARK: - UIVIewController
 
     override func viewDidLoad() {
         super.viewDidLoad()

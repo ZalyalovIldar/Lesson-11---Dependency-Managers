@@ -3,11 +3,15 @@ import SDWebImage
 
 class CreatureCell: UITableViewCell {
     
+    //MARK: - IBOutlets
+    
     @IBOutlet weak var creatureImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var massLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
+    
+    //MARK: - Setups
     
     func setup(for creature: Creature) {
         
