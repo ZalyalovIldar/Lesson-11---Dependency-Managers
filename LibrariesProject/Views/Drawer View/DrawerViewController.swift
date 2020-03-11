@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DrawerViewController: UIViewController {
 
@@ -43,7 +44,7 @@ class DrawerViewController: UIViewController {
             //reload image
             DispatchQueue.main.async {
                 self.characterImageView.image = image
-                self.characterImageView.contentMode = .scaleAspectFill
+                self.characterImageView.contentMode = .scaleToFill
             }
         }
         characterNameLabel.text = character.name

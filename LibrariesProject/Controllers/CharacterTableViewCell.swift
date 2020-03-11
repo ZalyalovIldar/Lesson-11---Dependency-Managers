@@ -40,7 +40,7 @@ class CharacterTableViewCell: UITableViewCell {
             //reload image
             DispatchQueue.main.async {
                 self.characterImageView.image = image
-                self.characterImageView.contentMode = .scaleAspectFill
+                self.characterImageView.contentMode = .scaleToFill
             }
         }
         characterNameLabel.text = character.name
