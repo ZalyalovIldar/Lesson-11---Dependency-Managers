@@ -1,26 +1,26 @@
 PODS:
   - Alamofire (4.8.2)
-  - Pulley (2.8.0)
+  - Presentr (1.9)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.0)
-  - Pulley
+  - Presentr
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Pulley
+    - Presentr
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  Pulley: 81301031e9b08c7b240fa47e8b5d76e00bb05530
+  Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
 
-PODFILE CHECKSUM: 7e8d2cf45b0f4fb3a5b499d107c3f95e389d1017
+PODFILE CHECKSUM: 2e4ac9df8bd2e91fee3e4345fecc077ea0b2e884
 
 COCOAPODS: 1.8.4

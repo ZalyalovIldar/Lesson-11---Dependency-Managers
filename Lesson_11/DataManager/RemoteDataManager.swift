@@ -16,7 +16,7 @@ class RemoteDataManager {
         
         guard let url = URL(string: baseURL) else { return }
         
-        Alamofire.request(url).responseData { response in
+        Alamofire.request(url).responseJSON { response in
             
             if let error = response.error {
                 
@@ -26,10 +26,10 @@ class RemoteDataManager {
                 }
             }
             
-            if let data = response.result.value {
-
-                guard let creatures = try? JSONDecoder().decode([Creature].self, from: data) else {
-                    print("<DEBUG> Couldn't extract creatures from JSON")
+            if let resultArray = response.result.value as? [[String : Any]] {
+                
+                guard let creatures = CreatureExtractor.shared.extractCreatures(from: resultArray) else {
+                    print("Couldn't extact creatures from response")
                     return
                 }
                 complition(.success(creatures: creatures))

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		423EDB91240FAB35005216E7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EDB90240FAB35005216E7 /* MainViewController.swift */; };
-		423EDB93240FAB74005216E7 /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EDB92240FAB74005216E7 /* PrimaryContentViewController.swift */; };
-		423EDB95240FABBC005216E7 /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EDB94240FABBC005216E7 /* DrawerContentViewController.swift */; };
+		42309B1E24198A540072C32E /* CreaturesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42309B1D24198A540072C32E /* CreaturesExtractor.swift */; };
+		423EDB93240FAB74005216E7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EDB92240FAB74005216E7 /* MainViewController.swift */; };
 		42400B49240FAE0300E5C8F7 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42400B48240FAE0300E5C8F7 /* AlertService.swift */; };
+		4283D1AB24185C2F005B1778 /* DetailedInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4283D1AA24185C2F005B1778 /* DetailedInfoViewController.swift */; };
 		42CC0422240D754400C9542D /* RemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CC0421240D754400C9542D /* RemoteDataManager.swift */; };
 		42CC0426240D76CF00C9542D /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CC0425240D76CF00C9542D /* Creature.swift */; };
 		42E39F85240D71EA00DDAB82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E39F84240D71EA00DDAB82 /* AppDelegate.swift */; };
@@ -25,10 +25,10 @@
 
 /* Begin PBXFileReference section */
 		38AC73C069EF2C9B7EE3A96B /* Pods-Lesson_11.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lesson_11.debug.xcconfig"; path = "Target Support Files/Pods-Lesson_11/Pods-Lesson_11.debug.xcconfig"; sourceTree = "<group>"; };
-		423EDB90240FAB35005216E7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		423EDB92240FAB74005216E7 /* PrimaryContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryContentViewController.swift; sourceTree = "<group>"; };
-		423EDB94240FABBC005216E7 /* DrawerContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
+		42309B1D24198A540072C32E /* CreaturesExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaturesExtractor.swift; sourceTree = "<group>"; };
+		423EDB92240FAB74005216E7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		42400B48240FAE0300E5C8F7 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		4283D1AA24185C2F005B1778 /* DetailedInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoViewController.swift; sourceTree = "<group>"; };
 		42CC0421240D754400C9542D /* RemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataManager.swift; sourceTree = "<group>"; };
 		42CC0425240D76CF00C9542D /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 		42E39F81240D71EA00DDAB82 /* Lesson_11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lesson_11.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				42400B48240FAE0300E5C8F7 /* AlertService.swift */,
+				42309B1D24198A540072C32E /* CreaturesExtractor.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -76,9 +77,8 @@
 		42CC041D240D74D600C9542D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				423EDB90240FAB35005216E7 /* MainViewController.swift */,
-				423EDB92240FAB74005216E7 /* PrimaryContentViewController.swift */,
-				423EDB94240FABBC005216E7 /* DrawerContentViewController.swift */,
+				423EDB92240FAB74005216E7 /* MainViewController.swift */,
+				4283D1AA24185C2F005B1778 /* DetailedInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -268,12 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				423EDB93240FAB74005216E7 /* PrimaryContentViewController.swift in Sources */,
-				423EDB95240FABBC005216E7 /* DrawerContentViewController.swift in Sources */,
+				423EDB93240FAB74005216E7 /* MainViewController.swift in Sources */,
 				42E39F85240D71EA00DDAB82 /* AppDelegate.swift in Sources */,
+				42309B1E24198A540072C32E /* CreaturesExtractor.swift in Sources */,
 				42E39F87240D71EA00DDAB82 /* SceneDelegate.swift in Sources */,
 				42CC0426240D76CF00C9542D /* Creature.swift in Sources */,
-				423EDB91240FAB35005216E7 /* MainViewController.swift in Sources */,
+				4283D1AB24185C2F005B1778 /* DetailedInfoViewController.swift in Sources */,
 				42F3DF5A240EFD32009AF252 /* CreatureCell.swift in Sources */,
 				42400B49240FAE0300E5C8F7 /* AlertService.swift in Sources */,
 				42CC0422240D754400C9542D /* RemoteDataManager.swift in Sources */,

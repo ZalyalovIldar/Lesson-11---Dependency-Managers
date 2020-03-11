@@ -20,22 +20,13 @@ class CreatureCell: UITableViewCell {
         }
         nameLabel.text = creature.name
         genderLabel.text = creature.gender
-        
-        if let mass = creature.mass {
-            massLabel.text = String(mass)
-        } else {
-            massLabel.text = "Unknown"
-        }
-        
-        if let height = creature.height {
-            heightLabel.text = String(height)
-        } else {
-            heightLabel.text = "Unknown"
-        }
+        massLabel.text = String(creature.mass)
+        heightLabel.text = String(creature.height)
     }
     
     func setupUI() {
         
+        selectionStyle = .none
         creatureImageView.layer.cornerRadius = creatureImageView.frame.height / 6
     }
 }
