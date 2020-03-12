@@ -11,7 +11,9 @@ import Alamofire
 
 class NetworkManager {
     
+    //singleton
     static let shared = NetworkManager()
+    private init(){}
     
     //API URL
     let url = "https://akabab.github.io/starwars-api/api/all.json"
