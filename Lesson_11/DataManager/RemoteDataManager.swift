@@ -36,7 +36,10 @@ class RemoteDataManager {
                     print("Couldn't extact creatures from response")
                     return
                 }
-                complition(.success(creatures: creatures))
+                
+                DispatchQueue.main.async {
+                    complition(.success(creatures: creatures))
+                }
             }
         }
     }

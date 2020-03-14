@@ -8,6 +8,7 @@ fileprivate enum Constants {
     static let creatureCellIdentifier = "CreatureCell"
     static let mainStoryboardIdentifier = "Main"
     static let detailedInfoVCIdentifier = "DetailedInfoVC"
+    static let presentrHeightPercentage = Float(0.82)
 }
 
 //MARK: - MainViewController
@@ -24,8 +25,8 @@ class MainViewController: UIViewController {
     let presenter: Presentr = {
         
         let width = ModalSize.full
-        let height = ModalSize.fluid(percentage: 0.82)
-        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 0, y: 0))
+        let height = ModalSize.fluid(percentage: Constants.presentrHeightPercentage)
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint.zero)
         let customType = PresentationType.custom(width: width, height: height, center: center)
 
         let customPresenter = Presentr(presentationType: customType)
@@ -42,10 +43,16 @@ class MainViewController: UIViewController {
             switch result {
                 
             case .failure(let error):
-                self.handle(error: error)
+                
+                DispatchQueue.main.async {
+                    self.handle(error: error)
+                }
                 
             case .success(let creatures):
-                self.apply(creatures: creatures)
+                
+                DispatchQueue.main.async {
+                    self.apply(creatures: creatures)
+                }
             }
         }
     }
