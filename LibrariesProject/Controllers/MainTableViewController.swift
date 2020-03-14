@@ -11,6 +11,9 @@ import FittedSheets
 
 class MainTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let errorAlertTitle = "Error"
+    let errorAlertActionTitle = "Close"
+    
     /// main tableview instance
     @IBOutlet weak var heroesTableView: UITableView!
     
@@ -33,17 +36,24 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 
         heroesTableView.register(cell: HeroTableViewCell.self)
         
-        networkManager.getAllHeroes { [weak self] heroes in
+        networkManager.getAllHeroes { [weak self] result in
             
             DispatchQueue.main.async {
                 
-                self?.heroes = heroes
-                self?.heroesTableView.reloadData()
+                switch result {
+                    
+                    case .success(let heroes):
+                        
+                        self?.heroes = heroes
+                        self?.heroesTableView.reloadData()
+                    
+                    case .failure(let error):
+                        self?.showErrorAlert(error: error)
+                }
             }
         }
     }
     
-    /// handles the action of tapping on the specific cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let controller = HeroSheetController()
@@ -54,6 +64,17 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
         sheet.blurBottomSafeArea = false
         
         present(sheet, animated: false)
+    }
+    
+    /// shows alert with error's localized description
+    /// - Parameter error: error to alert about
+    func showErrorAlert(error: Error) {
+        
+        let alertController = UIAlertController(title: errorAlertTitle, message: error.localizedDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: errorAlertActionTitle, style: .default, handler: nil)
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true)
     }
     
     //MARK: - TableView Delegate&DataSource

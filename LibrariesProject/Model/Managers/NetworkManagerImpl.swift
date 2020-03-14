@@ -11,14 +11,23 @@ import Alamofire
 
 class NetworkManagerImpl: NetworkManager {
         
-    func getAllHeroes(completion: @escaping ([HeroDto]) -> Void) {
+    func getAllHeroes(completion: @escaping (Result<[HeroDto], Error>) -> Void) {
         
         AF.request(Endpoints.allHeroes).responseDecodable(of: [Hero].self) { (response) in
             
-            guard let heroes = response.value else { return }
+            if let error = response.error {
+                
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                
+                return
+            }
             
+            guard let heroes = response.value else { return }
+                        
             DispatchQueue.main.async {
-                completion(heroes.map({ $0.toDto() }))
+                completion(.success(heroes.map({ $0.toDto() })))
             }
         }
     }

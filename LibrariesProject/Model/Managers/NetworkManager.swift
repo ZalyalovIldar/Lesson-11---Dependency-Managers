@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol NetworkManager {
     
     /// Retrieves all the heroes from API
     /// - Parameter completion: block that is called when the data is received
-    func getAllHeroes(completion: @escaping ([HeroDto]) -> Void)
+    func getAllHeroes(completion: @escaping (Result<[HeroDto], Error>) -> Void)
 }

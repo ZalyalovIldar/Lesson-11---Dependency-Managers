@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// hero dto for using in the view controllers
 struct HeroDto {
     
     let name: String
