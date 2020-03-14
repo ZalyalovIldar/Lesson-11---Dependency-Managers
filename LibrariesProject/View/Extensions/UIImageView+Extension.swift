@@ -15,14 +15,11 @@ extension UIImageView {
     ///   - roundCorners: rounding indicator
     ///   - cornerRadius: radius for corner rounding
     convenience init(roundCorners: Bool = false, cornerRadius: CGFloat = 0) {
-        self.init()
+        self.init()                
         
-        translatesAutoresizingMaskIntoConstraints = false
-        
-        if roundCorners {
-            layer.cornerRadius = cornerRadius
-            clipsToBounds = true
-        }
+        guard roundCorners else { return }
+     
+        layer.cornerRadius = cornerRadius
+        clipsToBounds = true
     }
-    
 }

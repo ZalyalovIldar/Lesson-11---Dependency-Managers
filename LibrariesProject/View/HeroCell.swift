@@ -36,6 +36,10 @@ class HeroCell: UITableViewCell {
         nameLabel.sizeToFit()
         homeworldLabel.sizeToFit()
         
+        heroImage.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        homeworldLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(heroImage)
         addSubview(nameLabel)
         addSubview(homeworldLabel)
@@ -55,8 +59,8 @@ class HeroCell: UITableViewCell {
             heroImage.heightAnchor.constraint(equalToConstant: imageViewSizes.height),
             heroImage.widthAnchor.constraint(equalToConstant: imageViewSizes.width),
 
-            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: interval),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -interval),
             stackView.leftAnchor.constraint(equalTo: heroImage.rightAnchor, constant: interval / 2),
             stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -interval)
         ])        

@@ -26,20 +26,29 @@ class DetailController: UIViewController {
     private let eyeColorLabel = UILabel(textColor: .black)
     private let skinColorLabel = UILabel(textColor: .black)
     
-    /// Basic indentation for elements
+    /// Constant values for elements
     private let interval: CGFloat = 20
+    private let labelHeight: CGFloat = 20
+    private let noHeight = "No height"
+    private let noMass = "No mass"
+    private let noHomeworld = "No homeworld"
+    private let noHairColor = "No hair color"
+    private let noEyeColor = "No eye color"
+    private let noSkinColor = "No skin color"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        initConstraints()
+        initViews()
         view.backgroundColor = .white
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         removeFromParent()
-    }    
-    
+    }
+        
     /// Method, that set hero data to UI elements
     /// - Parameter hero: passed entity
     func configure(with hero: Hero) {
@@ -51,23 +60,26 @@ class DetailController: UIViewController {
         title = hero.name
         
         nameLabel.text = hero.name
-        heightLabel.text = hero.height == nil ? "No height" : "Height: \(hero.height!)"
-        massLabel.text = hero.mass == nil ? "No mass" : "Mass: \(hero.mass!)"
+        heightLabel.text = hero.height == nil ? noHeight : "Height: \(hero.height!)"
+        massLabel.text = hero.mass == nil ? noMass : "Mass: \(hero.mass!)"
         genderLabel.text = "Gender: " + hero.gender
-        homeworldLabel.text = "Homeworld: " + (hero.homeworld ?? "No homeworld")
+        homeworldLabel.text = "Homeworld: " + (hero.homeworld ?? noHomeworld)
         wikiLabel.text = "Wiki: " + hero.wiki
         speciesLabel.text = "Species: " + hero.species
-        hairColorLabel.text = "Hair color: " + (hero.hairColor ?? "No hair color")
-        eyeColorLabel.text = "Eye color: " + (hero.eyeColor ?? "No eye color")
-        skinColorLabel.text = "Skin color: " + (hero.skinColor ?? "No skin color")
+        hairColorLabel.text = "Hair color: " + (hero.hairColor ?? noHairColor)
+        eyeColorLabel.text = "Eye color: " + (hero.eyeColor ?? noEyeColor)
+        skinColorLabel.text = "Skin color: " + (hero.skinColor ?? noSkinColor)
     }
     
     /// Method, that initialize all UI elements & add constraints to them
-    private func initConstraints() {
+    private func initViews() {
+        
+        heroImageView.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(heroImageView)
-        view.addSubview(nameLabel)
         
+        view.addSubview(nameLabel)
         view.addSubview(heightLabel)
         view.addSubview(massLabel)
         view.addSubview(genderLabel)
@@ -90,8 +102,8 @@ class DetailController: UIViewController {
                                 axis: .vertical,
                                 spacing: 0)
         stack.distribution = .fillProportionally
-        
         stack.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(stack)
         
         NSLayoutConstraint.activate([
@@ -102,7 +114,7 @@ class DetailController: UIViewController {
             
             nameLabel.centerXAnchor.constraint(equalTo: heroImageView.centerXAnchor),
             nameLabel.topAnchor.constraint(equalTo: heroImageView.bottomAnchor, constant: interval / 2),
-            nameLabel.heightAnchor.constraint(equalToConstant: 20),
+            nameLabel.heightAnchor.constraint(equalToConstant: labelHeight),
             
             stack.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: interval),
             stack.leftAnchor.constraint(equalTo: view.leftAnchor, constant: interval),

@@ -20,7 +20,6 @@ extension UILabel {
         self.font = .avenirMedium(size: fontSize)
         self.textColor = textColor
         numberOfLines = 0
-        sizeToFit()
-        translatesAutoresizingMaskIntoConstraints = false
+        sizeToFit()        
     }    
 }

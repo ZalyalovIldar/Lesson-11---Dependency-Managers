@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HeroesController.swift
 //  LibrariesProject
 //
 //  Created by Ильдар Залялов on 02.03.2020.
@@ -9,7 +9,7 @@
 import SDWebImage
 import FloatingPanel
 
-class ViewController: UIViewController {
+class HeroesController: UIViewController {
     
     /// Table view for heroes
     private var tableView: UITableView!
@@ -32,18 +32,25 @@ class ViewController: UIViewController {
         title = "Heroes"
         
         networkManager = NetworkManager()
-        networkManager.getHeroesInfo { [weak self] heroesArray in
+        
+        networkManager.getHeroesInfo { [weak self] result in
             
-            DispatchQueue.main.async {
-                self?.heroes = heroesArray
-                self?.tableView.reloadData()
+            switch result {
+                
+            case .success(let heroes):
+                self?.heroes = heroes
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Error:", error.localizedDescription)
             }
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                
+        
         fpc = FloatingPanelController()
     }
     
@@ -71,8 +78,8 @@ class ViewController: UIViewController {
 
 //MARK: - UITableViewDelegate & UITableViewDataSource
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-   
+extension HeroesController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return heroes.count
     }
@@ -90,7 +97,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let detailVC = DetailController()
         detailVC.configure(with: heroes[indexPath.row])
-
+        
         fpc.set(contentViewController: detailVC)
         fpc.addPanel(toParent: self)
     }
