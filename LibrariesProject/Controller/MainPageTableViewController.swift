@@ -17,6 +17,10 @@ class MainPageTableViewController: UITableViewController {
     private let heroCellReuseIdentifier = "customCell"
     // Array of hero structures
     private var heroesArray: [Hero] = []
+    // Title for error alert
+    private let errorTitle = "Error!"
+    // Closing alert action title
+    private let closeActionTitle = "Close"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,18 +28,34 @@ class MainPageTableViewController: UITableViewController {
         tableView.register(UINib(nibName: heroCellNibName, bundle: nil), forCellReuseIdentifier: heroCellReuseIdentifier)
         
         let networkManager = NetworkManager()
-        networkManager.getHeroes { [weak self] heroes in
+        networkManager.getHeroes { [weak self] heroes, error in
             
-            DispatchQueue.main.async {
-                
-                self?.heroesArray = heroes
-                self?.tableView.reloadData()
+            if let error = error{
+                self?.showErrorAlert(error: error)
+            } else {
+                DispatchQueue.main.async {
+                    
+                    self?.heroesArray = heroes
+                    self?.tableView.reloadData()
+                }
             }
         }
     }
     
-    //MARK:- TableView Methods
     
+    /// Method for alert presenting
+    /// - Parameter error: Error to present to user
+    func showErrorAlert(error: Error){
+        
+        let alertController = UIAlertController(title: errorTitle, message: error.localizedDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: closeActionTitle, style: .default, handler: nil)
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true)
+    }
+    
+    //MARK:- TableView Methods
+        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return heroesArray.count
     }

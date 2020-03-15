@@ -39,17 +39,8 @@ class MoreInfoViewController: UIViewController {
         self.heroHomeworldLabel.text = hero.homeworld
         self.heroGenderLabel.text = hero.gender
         
-        if hero.height == nil {
-            heroHeightLabel.text = notStatedText
-        } else {
-            heroHeightLabel.text = "\(hero.height!)"
-        }
-        
-        if hero.mass == nil {
-            heroMassLabel.text = notStatedText
-        } else {
-            heroMassLabel.text = "\(hero.mass!)"
-        }
+        heroHeightLabel.text = hero.height == nil ? notStatedText : "\(hero.height!)"
+        heroMassLabel.text = hero.mass == nil ? notStatedText : "\(hero.mass!)"
     }
     
     /// Method for configutation view with specific hero
