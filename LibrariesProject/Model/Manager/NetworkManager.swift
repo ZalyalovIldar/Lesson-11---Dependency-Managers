@@ -12,7 +12,7 @@ import Alamofire
 class NetworkManager: NetworkManagerProtocol {
     
     // Link for using API
-    private let apiLink = "https://akabab.github.io/starwars-api/api/alls.json"
+    private let apiLink = "https://akabab.github.io/starwars-api/api/all.json"
     
     /// Method for getting array of hero structures
     /// - Parameter completion: Completion to work with array of hero structures
