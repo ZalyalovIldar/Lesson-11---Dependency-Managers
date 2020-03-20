@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// container for network response data
 struct Character: Decodable {
     
     let name: String

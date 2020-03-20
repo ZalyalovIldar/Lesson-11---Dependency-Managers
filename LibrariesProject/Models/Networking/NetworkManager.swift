@@ -11,24 +11,28 @@ import Alamofire
 
 class NetworkManager {
     
-    //singleton
-    static let shared = NetworkManager()
-    private init(){}
-    
     //API URL
     let url = "https://akabab.github.io/starwars-api/api/all.json"
     
-    func getCharacters(completion: @escaping ([CharacterLabelData]) -> Void) {
+    func getCharacters(completion: @escaping (Result<[CharacterLabelData], Error>) -> Void) {
         
         //API request
         AF.request(url).validate().responseDecodable(of: [Character].self) { (response) in
+            
+            if let error = response.error {
+                
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
             
             //check response data
             guard let characters = response.value else { return }
             
             //creating labels in the main thread
             DispatchQueue.main.async {
-                completion(characters.map({ $0.createLabels() }))
+                completion(.success(characters.map({ $0.createLabels() })))
             }
         }
     }

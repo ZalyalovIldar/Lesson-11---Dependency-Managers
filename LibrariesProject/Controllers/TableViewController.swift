@@ -15,6 +15,7 @@ class TableViewController: UITableViewController {
     
     private var characters: [CharacterLabelData] = []
     private let cellIdentifier = "characterCell"
+    private let networkManager = NetworkManager()
     
     // MARK: - Lifecycle
     
@@ -25,12 +26,23 @@ class TableViewController: UITableViewController {
         tableView.dataSource = self
         
         //download and update characters data
-        NetworkManager.shared.getCharacters { [weak self] characters in
+        networkManager.getCharacters { [weak self] result in
             
             DispatchQueue.main.async {
                 
-                self?.characters = characters
-                self?.tableView.reloadData()
+                switch result {
+                    
+                case .success(let characters):
+                    
+                    self?.characters = characters
+                    self?.tableView.reloadData()
+                    
+                //if didn't get data stop tableView configuring
+                case .failure( _):
+                    
+                    return
+                }
+                
             }
         }
     }

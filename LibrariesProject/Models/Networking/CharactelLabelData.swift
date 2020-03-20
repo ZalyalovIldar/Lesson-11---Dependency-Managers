@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// container for UILabel data
 struct CharacterLabelData {
     
     let name: String
